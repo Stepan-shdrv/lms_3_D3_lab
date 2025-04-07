@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title> Трансформация и анимация</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="http://d3js.org/d3.v7.min.js"></script>
+    <script src="JavaScript/main.js"></script>
+    <script src="JavaScript/image.js"></script>
+    <script src="JavaScript/path.js"></script>
+</head>
+<body>
+    <form id="setting">
+        <p id="Cord">
+            <b>Координаты рисунка</b><br>
+            <label for="cx">x: </label>
+            <input type="number" id="cx" value="300" max="600" min="0">
+            <label id="cx_finish_label" for="Do" style="visibility:hidden">До </label>
+            <input type="number" id="cx_finish" value="300" max="600" min="0" style="visibility:hidden">
+            <br>
+            <label for="cy">y: </label>
+            <input type="number" id="cy" value="300" max="600" min="0">
+            <label id="cy_finish_label" for="Do" style="visibility:hidden">До </label>
+            <input type="number" id="cy_finish" value="300" max="600" min="0" style="visibility:hidden">
+        </p>
+        <p id="Scale">
+            Масштаб<br>
+            <label for="cx">По x: </label>
+            <input type="number" id="scaleX" value="1" max="5" min="0">
+            <label id="scale_x_label" for="angle" style="visibility:hidden">До: </label>
+            <input type="number" id="scaleXDo" value="1" max="5" min="0" style="visibility:hidden"><br>
+            <label for="cy">По y: </label>
+            <input type="number" id="scaleY" value="1" max="5" min="0">
+            <label id="scale_y_label" for="angle" style="visibility:hidden">До: </label>
+            <input type="number" id="scaleYDo" value="1" max="5" min="0" style="visibility:hidden">
+        </p>
+        <p>
+            Поворот<br>
+            <label for="cx">Угол: </label>
+            <input type="number" id="angle" value="0" max="360" min="0">
+            <label id="angle_label" for="angle" style="visibility:hidden">До: </label>
+            <input type="number" id="angle_do" value="0" max="360" min="0" style="visibility:hidden">
+            <br>
+
+        </p>
+        <div>
+            <input type="button" value="Нарисовать" onclick="draw(this.form)">
+            <input type="button" value="Очистить" onclick="clearSVG()">
+        </div>
+        <div>
+            <input type="checkbox" id="ChekAnim" onchange="visibleAnimation()">Включите анимацию?
+
+            <select id="fieldsFirst" style="visibility:hidden">
+                <option value="1">Liner</option>
+                <option value="2">Elastic</option>
+                <option value="3">Bounce</option>
+            </select>
+        </div>
+        <div>
+            <input id="checkGo" style="visibility:hidden" type="checkbox" value="Движение" onclick="VisibleGo(this.form)"> <span id="checkGoSpan" style="visibility:hidden">Перемещение вдоль пути?</span>
+        </div>
+
+        <div>
+            <input id="butanimat" style="visibility:hidden" type="button" value="Анимировать" onclick="runAnimation(this.form)">
+        </div>
+
+    </form>
+    <svg></svg>
+
+</body>
+</html>
